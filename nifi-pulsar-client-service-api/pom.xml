@@ -13,13 +13,14 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>io.streamnative.connectors</groupId>
         <artifactId>nifi-pulsar-bundle</artifactId>
-        <version>1.18.0</version>
+        <version>1.17.0</version>
     </parent>
 
     <artifactId>nifi-pulsar-client-service-api</artifactId>
@@ -27,60 +28,71 @@
     <packaging>jar</packaging>
 
     <properties>
-      <maven.deploy.skip>false</maven.deploy.skip>
+        <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
-    
+
     <dependencies>
-    
+
+
         <dependency>
             <groupId>org.apache.nifi</groupId>
             <artifactId>nifi-api</artifactId>
             <version>${nifi.version}</version>
             <scope>provided</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>org.apache.pulsar</groupId>
             <artifactId>pulsar-client</artifactId>
             <version>${pulsar.version}</version>
-		</dependency>
-		
+        </dependency>
+
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-core</artifactId>
+            <version>1.12.157</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.pulsar</groupId>
             <artifactId>pulsar-client-auth-athenz</artifactId>
             <version>${pulsar.version}</version>
         </dependency>
-        
+
         <dependency>
-        	<groupId>com.fasterxml.jackson.core</groupId>
-  		    <artifactId>jackson-core</artifactId>
-  		    <version>${jackson-core.version}</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson-core.version}</version>
         </dependency>
-        
+
         <dependency>
-        	<groupId>org.apache.commons</groupId>
-        	<artifactId>commons-collections4</artifactId>
-        	<version>${commons-collections4.version}</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${commons-collections4.version}</version>
         </dependency>
-        
-       <dependency>
-  			<groupId>org.conscrypt</groupId>
-  			<artifactId>conscrypt-openjdk-uber</artifactId>
-  			<version>${conscrypt-openjdk.version}</version>
-		</dependency>
-		
-		<dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-             <version>${junit.version}</version>
+
+        <dependency>
+            <groupId>org.conscrypt</groupId>
+            <artifactId>conscrypt-openjdk-uber</artifactId>
+            <version>${conscrypt-openjdk.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
             <scope>test</scope>
         </dependency>
-        
         <dependency>
-  			<groupId>org.mockito</groupId>
-  			<artifactId>mockito-core</artifactId>
-  			<version>${mockito-core.version}</version>
-		</dependency>
-         
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
     </dependencies>
 </project>
